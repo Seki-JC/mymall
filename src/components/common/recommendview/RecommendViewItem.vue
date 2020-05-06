@@ -17,7 +17,6 @@
         padding-bottom: 5vw;
         text-align: center;
         font-size: 14px;
-        border-bottom: 3vw solid #eee;
     }
     .RecommendViewItem img {
         width: 23vw;

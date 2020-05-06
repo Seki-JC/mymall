@@ -1,7 +1,11 @@
 <template>
     <div class="outer-swiper">
         <div class="swiper-ul" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd">
-            <slot></slot>
+            <swiper-item v-for="(item,index) in resultSwiper" :key="index">
+                <a :href="item.aLink">
+                    <img :src="item.imgUrl" @load="swiperImgLoad">
+                </a>
+            </swiper-item>
         </div>
         <div class="outer-indicator">
             <div v-for="(item, index) in slideCount" :key="index" class="indicator" :class="{swiperActive:isActive(index)}">
@@ -11,9 +15,17 @@
 </template>
 
 <script>
+    import SwiperItem from "components/common/swiper/SwiperItem"
     export default {
         name: 'Swiper',
+        components: {
+            SwiperItem
+        },
         props: {
+            resultSwiper: {
+                type: Array,
+                default: []
+            },
             interval: {     // 间隔时间
                 type: Number,
                 default: 2000
@@ -37,7 +49,8 @@
                 isBegin:false,      // 手动滚动标识
                 beginX:{type:Number},
                 currentX:{type:Number},
-                distance:{type:Number}
+                distance:{type:Number},
+                isdeactivated: false
             }
         },
         mounted() {
@@ -46,8 +59,15 @@
                 this.setTimer();
             }, 100);
         },
-        beforeDestroy() {
+        activated() {
+            if (this.isDeactivated) {
+                this.setTimer();
+                this.isDeactivated = false
+            }
+        },
+        deactivated() {
             this.stopTimer();
+            this.isDeactivated = true;
         },
         computed: {
             isActive:function() {
@@ -59,7 +79,6 @@
                         // 普通情况和 最后一张往右拉时
                         return (index == this.currentIndex) || (index == (this.currentIndex % (this.slideCount-2)))
                     }
-                    
                 }
             }
         },
@@ -100,7 +119,7 @@
             /*
                 定时器相关操作
             */
-            setTimer: function() {
+            setTimer() {
                 this.timer = window.setInterval(() => {
                     // 当前位置加一
                     this.currentIndex++;
@@ -164,6 +183,13 @@
                     this.setTimer()
                 }
                 this.isBegin = false
+            },
+            swiperImgLoad() {
+                // 为了不多次调用，使用了isLoad变量，只执行一次
+                if (!this.isLoad) {
+                    this.$emit('swiperImageLoad')
+                    this.isLoad = true
+                }
             }
         }
     }

@@ -5,6 +5,7 @@ const Home = () => import('../views/home/Home')
 const About = () => import('../views/about/About')
 const Shopcart = () => import('../views/shopcart/Shopcart')
 const User = () => import('../views/user/User')
+const Detail = () => import('../views/detail/Detail')
 
 // 1.安装插件
 Vue.use(Router)
@@ -32,6 +33,10 @@ const routes = [
   {
     path: '/user',
     component: User
+  },
+  {
+    path: '/detail/:id',
+    component: Detail
   }
 ]
 const router = new Router({

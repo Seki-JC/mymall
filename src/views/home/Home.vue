@@ -1,37 +1,16 @@
 <template>
     <div id="home">
-      <navbar class="home-navbar"><div slot="center">购物车</div></navbar>
+      <navbar class="home-navbar"><div slot="center">首页</div></navbar>
       <tab-control :title="['类别0','类别1','类别2']" @tabClick='changeTab' ref="tabControl0"
         v-show="isTabControlFixed" class="tabShow">
       </tab-control>
       <scroll class="scroll" ref="mainSrcoll" :probe-type='3' @backPosition='getPosition'>
-        <swiper>
-          <swiper-item v-for="(item,index) in resultSwiper" :key="index">
-            <a :href="item.aLink">
-              <img :src="item.imgUrl" @load="swiperImgLoad">
-            </a>
-          </swiper-item>
-        </swiper>
-        <scroll class="scrollRecommendView">
-          <recommend-view>
-            <recommend-view-item v-for="(item,index) in resultRecommendView" :key="index">
-              <a :href="item.aLink">
-                  <img :src="item.imgUrl">
-                  <div>{{item.title}}</div>
-              </a>
-            </recommend-view-item>
-          </recommend-view>
-        </scroll>
+        <swiper v-bind:resultSwiper=resultSwiper @swiperImageLoad='swiperImageLoad'></swiper>
+        <recommend-view v-bind:resultRecommendView=resultRecommendView
+                        class="recommendView"></recommend-view>
         <tab-control :title="['类别0','类别1','类别2']" @tabClick='changeTab' ref="tabControl">
         </tab-control>
-        <goods-list>
-          <goods-list-item v-for="(item, index) in resultGoodsList[currentType]" :key="index">
-            <a :href="item.aLink">
-              <img :src="item.imgUrl">
-              <div>{{item.title}}</div>
-            </a>
-          </goods-list-item>
-        </goods-list>
+        <goods-list v-bind:resultGoodsList=resultGoodsList[currentType]></goods-list>
       </scroll>
       <!-- 修饰符.native，监听一个组件的原生事件 -->
       <back-top @click.native='backTopClick' v-show="isShowBackTop"></back-top>
@@ -40,13 +19,13 @@
 
 <script>
   import Navbar from "components/common/navbar/NavBar"
-  import {Swiper, SwiperItem} from "components/common/swiper"
-  import {RecommendView, RecommendViewItem} from "components/common/recommendview"
+  import Swiper from "components/common/swiper/Swiper"
+  import RecommendView from "components/common/recommendview/RecommendView"
   import TabControl from "components/common/tabcontrol/TabControl"
   import Scroll from "components/common/scroll/Scroll"
   import BackTop from "components/common/backtop/BackTop"
 
-  import {GoodsList, GoodsListItem} from "components/content/goods"
+  import GoodsList from "components/content/goods/GoodsList"
 
   import {getHomeMultidata} from "network/home"
 
@@ -54,9 +33,9 @@
     name: 'Home',
     components:{
       Navbar,
-      Swiper,SwiperItem,
-      RecommendView,RecommendViewItem,
-      GoodsList,GoodsListItem,
+      Swiper,
+      RecommendView,
+      GoodsList,
       TabControl,
       Scroll,
       BackTop
@@ -80,7 +59,7 @@
         // 拿到网络请求数据后保存到当前组件中
         this.resultSwiper = res.data.swiper
         this.resultRecommendView = res.data.recommend
-
+        
         this.resultGoodsList.homeType0 = res.data.goods.homeType0
         this.resultGoodsList.homeType1 = res.data.goods.homeType1
         this.resultGoodsList.homeType2 = res.data.goods.homeType2
@@ -91,6 +70,7 @@
     activated() {
       // 回来时 to 当前记录的滚动位置，0ms
       this.$refs.mainSrcoll.scrollTo(0,this.currentY,0)
+      
     },
     deactivated() {
       // 离开时记录当前滚动位置
@@ -135,20 +115,14 @@
           this.isTabControlFixed = false
         }
       },
-      swiperImgLoad() {
-        // 为了不多次调用，使用了isLoad
-        if (!this.isLoad) {
-          this.isLoad = true
-          // 获取TabControl的offsetTop
-          // 所有的组件都有一个属性 $el 用于获取组件中的元素
+      swiperImageLoad() {
           this.offsetTop = this.$refs.tabControl.$el.offsetTop
-        }
       }
     }
   }
 </script>
 
-<style>
+<style scoped>
   #home {
     height: 100vh;
   }
@@ -165,11 +139,8 @@
     left: 0;
     right: 0;
   }
-  .scrollRecommendView {
-    overflow: hidden;
-  }
-  .scrollRecommendView>*{
-    display: inline-flex;
+  .recommendView {
+    border-bottom: 3vw solid #eee;
   }
   .backTopActive {
     display: none;

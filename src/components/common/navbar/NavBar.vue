@@ -12,7 +12,7 @@
     }
 </script>
 
-<style>
+<style scoped>
     .navbar {
         width: 100%;
         display: flex;

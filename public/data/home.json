@@ -52,88 +52,152 @@
   "goods":{
     "homeType0":[
       {
-        "aLink":"",
         "imgUrl":"./data/img/goods/11.jpg",
-        "title":"标题11"
+        "title":"标题11",
+        "goodsId": "11",
+        "price": "101",
+        "goodDes": "商品文字描述11",
+        "shopName": "店铺名字11",
+        "count": 0
       },
       {
-        "aLink":"",
         "imgUrl":"./data/img/goods/12.jpg",
-        "title":"标题12"
+        "title":"标题12",
+        "goodsId": "12",
+        "price": "102",
+        "goodDes": "商品文字描述12",
+        "shopName": "店铺名字12",
+        "count": 0
       },
       {
-        "aLink":"",
         "imgUrl":"./data/img/goods/13.jpg",
-        "title":"标题13"
+        "title":"标题13",
+        "goodsId": "13",
+        "price": "103",
+        "goodDes": "商品文字描述13",
+        "shopName": "店铺名字13",
+        "count": 0
       },
       {
-        "aLink":"",
         "imgUrl":"./data/img/goods/14.jpg",
-        "title":"标题14"
+        "title":"标题14",
+        "goodsId": "14",
+        "price": "104",
+        "goodDes": "商品文字描述14",
+        "shopName": "店铺名字14",
+        "count": 0
       },
       {
-        "aLink":"",
         "imgUrl":"./data/img/goods/15.jpg",
-        "title":"标题15"
+        "title":"标题15",
+        "goodsId": "15",
+        "price": "105",
+        "goodDes": "商品文字描述15",
+        "shopName": "店铺名字15",
+        "count": 0
       },
       {
-        "aLink":"",
         "imgUrl":"./data/img/goods/16.jpg",
-        "title":"标题16"
+        "title":"标题16",
+        "goodsId": "16",
+        "price": "106",
+        "goodDes": "商品文字描述16",
+        "shopName": "店铺名字16",
+        "count": 0
       }
     ],
     "homeType1": [
       {
-        "aLink":"",
         "imgUrl":"./data/img/goods/21.jpg",
-        "title":"标题21"
+        "title":"标题21",
+        "goodsId": "21",
+        "price": "201",
+        "goodDes": "商品文字描述21",
+        "shopName": "店铺名字21",
+        "count": 0
       },
       {
-        "aLink":"",
         "imgUrl":"./data/img/goods/22.jpg",
-        "title":"标题22"
+        "title":"标题22",
+        "goodsId": "22",
+        "price": "202",
+        "goodDes": "商品文字描述22",
+        "shopName": "店铺名字22",
+        "count": 0
       },
       {
-        "aLink":"",
         "imgUrl":"./data/img/goods/23.jpg",
-        "title":"标题23"
+        "title":"标题23",
+        "goodsId": "23",
+        "price": "203",
+        "goodDes": "商品文字描述23",
+        "shopName": "店铺名字23",
+        "count": 0
       },
       {
-        "aLink":"",
         "imgUrl":"./data/img/goods/24.jpg",
-        "title":"标题24"
+        "title":"标题24",
+        "goodsId": "24",
+        "price": "204",
+        "goodDes": "商品文字描述24",
+        "shopName": "店铺名字24",
+        "count": 0
       },
       {
-        "aLink":"",
         "imgUrl":"./data/img/goods/25.jpg",
-        "title":"标题25"
+        "title":"标题25",
+        "goodsId": "25",
+        "price": "205",
+        "goodDes": "商品文字描述25",
+        "shopName": "店铺名字25",
+        "count": 0
       },
       {
-        "aLink":"",
         "imgUrl":"./data/img/goods/26.jpg",
-        "title":"标题26"
+        "title":"标题26",
+        "goodsId": "26",
+        "price": "206",
+        "goodDes": "商品文字描述26",
+        "shopName": "店铺名字26",
+        "count": 0
       }
     ],
     "homeType2": [
       {
-        "aLink":"",
         "imgUrl":"./data/img/goods/31.jpg",
-        "title":"标题31"
+        "title":"标题31",
+        "goodsId": "31",
+        "price": "301",
+        "goodDes": "商品文字描述31",
+        "shopName": "店铺名字31",
+        "count": 0
       },
       {
-        "aLink":"",
         "imgUrl":"./data/img/goods/32.jpg",
-        "title":"标题32"
+        "title":"标题32",
+        "goodsId": "32",
+        "price": "302",
+        "goodDes": "商品文字描述32",
+        "shopName": "店铺名字32",
+        "count": 0
       },
       {
-        "aLink":"",
         "imgUrl":"./data/img/goods/33.jpg",
-        "title":"标题33"
+        "title":"标题33",
+        "goodsId": "33",
+        "price": "303",
+        "goodDes": "商品文字描述33",
+        "shopName": "店铺名字33",
+        "count": 0
       },
       {
-        "aLink":"",
         "imgUrl":"./data/img/goods/34.jpg",
-        "title":"标题34"
+        "title":"标题34",
+        "goodsId": "34",
+        "price": "304",
+        "goodDes": "商品文字描述34",
+        "shopName": "店铺名字34",
+        "count": 0
       }
     ]
   }
